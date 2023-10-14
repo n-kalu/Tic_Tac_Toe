@@ -26,6 +26,10 @@ bool isGameWon = false;
 //Variable to track when the computer has a pathway to win
 bool computerPathwayToWin = true;
 
+//Tracks current game being played to determine if it's odd or even. E.g. First game is even, second game is odd, etc. 
+int oddEvenGame = 0;
+
+
 int main()
 {
     printf("\n");
@@ -40,9 +44,6 @@ int main()
     bool pTurnToPlay = true;
     bool cTurnToPlay = false;
 
-    //Tracks current game being played to determine if it's odd or even. E.g. First game is even, second game is odd, etc. 
-    int oddEvenGame = 0;
-    
     int curPlay = 0;
     bool play = true;
 
@@ -301,7 +302,7 @@ int main()
                         break;
                     
                     default:
-                    printf("\nERROR: Wrong Input. Please ensure to enter 'Y' or 'N'.");
+                    printf("\nERROR: Wrong Input. Please ensure to enter 'Y' or 'N'.\n");
                         break;
                     }                    
                     
@@ -353,7 +354,7 @@ int main()
         }
         else if(lwrReady == 'n')
         {
-            printf("\nNo worries. Looking forward to playing with you in the future.");
+            printf("\nNo worries. Looking forward to playing with you in the future.\n\n\n\n");
             play = false;
         }
         else
@@ -1569,9 +1570,11 @@ void DisplayEmptyCells()
 void PrintResult(char pName[30])
 {
     //Print out the Result
-    printf("\nRESULT SHEET:\n");
-    printf("%s(X)       VS         COMPUTER(O)\n", pName);
-    printf("%d wins       %d draws      %d wins", pNoWins, noDraws, cNoWins);
+   
+    printf("\n************ RESULT SHEET ************\n\n");
+    printf("No. of games played: %d\n\n", oddEvenGame + 1);
+    printf("%s(X)       VS         COMPUTER(O)\n\n", pName);
+    printf("%d wins       %d draws      %d wins\n\n\n\n", pNoWins, noDraws, cNoWins);
 }
 
 void Result(bool pToPlay, bool cToPlay, char playerName[30])
@@ -1594,10 +1597,11 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
+                    
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
                 
             }
@@ -1618,10 +1622,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1641,10 +1645,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1664,10 +1668,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);                  
                 }
             }
         }
@@ -1687,10 +1691,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }  
             }
         }
@@ -1710,10 +1714,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1733,10 +1737,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1756,11 +1760,25 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nYou Won!\n\n");
-                    PrintResult(playerName);
                     pNoWins++;
                     isGameWon = true;
+                    printf("\n\nYou Won!\n\n");
+                    PrintResult(playerName);
                 }
+            }
+        }
+
+        if(isGameWon == false)
+        {
+            if(cellEntry[0][0] == ' ' || cellEntry[0][1] == ' ' || cellEntry[0][2] == ' ' || cellEntry[1][0] == ' ' || cellEntry[1][1] == ' ' || cellEntry[1][2] == ' ' || cellEntry[2][0] == ' ' || cellEntry[2][1] == ' ' || cellEntry[2][2] == ' ')
+            {
+                // Do Nothing
+            }
+            else
+            {
+                noDraws++;
+                printf("\n\nDraw!\n\n");
+                PrintResult(playerName);
             }
         }
     
@@ -1783,10 +1801,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1806,10 +1824,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1829,10 +1847,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1852,10 +1870,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1875,10 +1893,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1898,10 +1916,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1921,10 +1939,10 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
             }
         }
@@ -1944,11 +1962,25 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
                 }
                 else
                 {
-                    printf("\n\nComputer Won!\n\n");
-                    PrintResult(playerName);
                     cNoWins++;
                     isGameWon = true;
+                    printf("\n\nComputer Won!\n\n");
+                    PrintResult(playerName);
                 }
+            }
+        }
+
+        if(isGameWon == false)
+        {
+            if(cellEntry[0][0] == ' ' || cellEntry[0][1] == ' ' || cellEntry[0][2] == ' ' || cellEntry[1][0] == ' ' || cellEntry[1][1] == ' ' || cellEntry[1][2] == ' ' || cellEntry[2][0] == ' ' || cellEntry[2][1] == ' ' || cellEntry[2][2] == ' ')
+            {
+                // Do Nothing
+            }
+            else
+            {
+                noDraws++;
+                PrintResult(playerName);
+                printf("\n\nDraw!\n\n");
             }
         }
     }       
