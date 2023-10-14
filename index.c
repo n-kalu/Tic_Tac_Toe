@@ -45,7 +45,6 @@ int main()
     
     int curPlay = 0;
     bool play = true;
-    
 
     printf("Enter Your Name: ");
     scanf("%s", &name);
@@ -96,126 +95,215 @@ int main()
                     switch (cellNumber)
                     {
                     case '1':
-                        first = cellNumber;
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[0][0] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            first = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-    
-                        RegisterPlayedCell(curPlay, first, pTurnToPlay, cTurnToPlay);
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
+        
+                            RegisterPlayedCell(curPlay, first, pTurnToPlay, cTurnToPlay);
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                                                
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }                     
                         break;
+
                     case '2':
-                        second = cellNumber;
+                       
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[0][1] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            second = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-            
-                        RegisterPlayedCell(curPlay, second, pTurnToPlay, cTurnToPlay);
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
+                
+                            RegisterPlayedCell(curPlay, second, pTurnToPlay, cTurnToPlay);
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                        
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '3':
-                        third = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                        
-                        RegisterPlayedCell(curPlay, third, pTurnToPlay, cTurnToPlay);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[0][2] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            third = cellNumber;
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                        
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
+                            
+                            RegisterPlayedCell(curPlay, third, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '4':
-                        fourth = cellNumber;
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                    
-                        RegisterPlayedCell(curPlay, fourth, pTurnToPlay, cTurnToPlay);
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[1][0] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            fourth = cellNumber;
+
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
                         
+                            RegisterPlayedCell(curPlay, fourth, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+                        
                     case '5':
-                        fifth = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                    
-                        RegisterPlayedCell(curPlay, fifth, pTurnToPlay, cTurnToPlay);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[1][1] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            fifth = cellNumber;
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
                         
+                            RegisterPlayedCell(curPlay, fifth, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '6':
-                        sixth = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                        
-                        RegisterPlayedCell(curPlay, sixth, pTurnToPlay, cTurnToPlay);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[1][2] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            sixth = cellNumber;
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                        
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
+                            
+                            RegisterPlayedCell(curPlay, sixth, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '7':
-                        seventh = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[2][0] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            seventh = cellNumber;
 
-                        RegisterPlayedCell(curPlay, seventh, pTurnToPlay, cTurnToPlay);
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                        
+                            RegisterPlayedCell(curPlay, seventh, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '8':
-                        eight = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                    
-                        RegisterPlayedCell(curPlay, eight, pTurnToPlay, cTurnToPlay);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[2][1] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            eight = cellNumber;
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
                         
+                            RegisterPlayedCell(curPlay, eight, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }
                         break;
+
                     case '9':
-                        ninth = cellNumber;
 
-                        //Regex to clear Console
-                        printf("\e[1;1H\e[2J");
-                        PrintCellNumbers();
-                        
-                        RegisterPlayedCell(curPlay, ninth, pTurnToPlay, cTurnToPlay);
+                        //Check if the cell already has an entry. This is to avoid double entry into the same cell. 
+                        if (cellEntry[2][2] != ' ')
+                        {
+                            printf("\nERROR: This cell already has an entry. Please choose an empty cell.\n");
+                            continue;
+                        }
+                        else
+                        {
+                            ninth = cellNumber;
 
-                        //Display Result if there is a match
-                        Result(pTurnToPlay, cTurnToPlay, name);
-                                            
+                            //Regex to clear Console
+                            printf("\e[1;1H\e[2J");
+                            PrintCellNumbers();
+                            
+                            RegisterPlayedCell(curPlay, ninth, pTurnToPlay, cTurnToPlay);
+
+                            //Display Result if there is a match
+                            Result(pTurnToPlay, cTurnToPlay, name);
+                        }             
                         break;
                     
                     default:
-                    printf("\nWrong Input. Please ensure to enter 'Y' or 'N'.");
+                    printf("\nERROR: Wrong Input. Please ensure to enter 'Y' or 'N'.");
                         break;
-                    }
+                    }                    
                     
                     //Check if the Player or the Computer Won the game
                     if (isGameWon)
@@ -270,7 +358,7 @@ int main()
         }
         else
         {
-            printf("\nWrong Input. Please ensure to enter 'Y' or 'N'.");
+            printf("\nERROR: Wrong Input. Please ensure to enter 'Y' or 'N'.");
             play = false;
         }
 
