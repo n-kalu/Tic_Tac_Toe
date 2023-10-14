@@ -40,7 +40,6 @@ int main()
     char ready;
     char lwrReady;
 
-    //These two variables toggle between true and false respectively to track when it's the user's turn to play and when it is the computer's turn to play.
     bool pTurnToPlay = true;
     bool cTurnToPlay = false;
 
@@ -71,7 +70,7 @@ int main()
         
         if (lwrReady == 'y')
         {
-            //Check cell count after each game and refresh page when 
+            //Refresh page after each game 
             if(pTurnToPlay)
             {
                 printf("\e[1;1H\e[2J");
@@ -88,6 +87,19 @@ int main()
                     char cellNumber;
                     printf("\nEnter Cell Number: ");
                     scanf("%c", &cellNumber);
+                    
+
+                    //Check for input errors when the player/user tries to enter the cell number. 
+                    if(cellNumber == '1' || cellNumber == '2'|| cellNumber == '3'|| cellNumber == '4'|| cellNumber == '5'|| cellNumber == '6'|| cellNumber == '7'|| cellNumber == '8'|| cellNumber == '9')
+                    {
+                        // Do Nothing.
+                    }
+                    else
+                    {
+                        ClearStdinBuffer();
+                        printf("\nERROR: Wrong input! Please enter only numbers(1 - 9) corresponding to the cell of your choice.\n");
+                        continue;
+                    }
 
                     //Clear StdIn buffer.
                     ClearStdinBuffer();
@@ -1574,7 +1586,7 @@ void PrintResult(char pName[30])
     printf("\n************ RESULT SHEET ************\n\n");
     printf("No. of games played: %d\n\n", oddEvenGame + 1);
     printf("%s(X)       VS         COMPUTER(O)\n\n", pName);
-    printf("%d wins       %d draws      %d wins\n\n\n\n", pNoWins, noDraws, cNoWins);
+    printf("%d wins       %d draws      %d wins\n\n", pNoWins, noDraws, cNoWins);
 }
 
 void Result(bool pToPlay, bool cToPlay, char playerName[30])
@@ -1979,8 +1991,9 @@ void Result(bool pToPlay, bool cToPlay, char playerName[30])
             else
             {
                 noDraws++;
-                PrintResult(playerName);
                 printf("\n\nDraw!\n\n");
+                PrintResult(playerName);
+                
             }
         }
     }       
